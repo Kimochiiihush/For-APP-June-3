@@ -23,23 +23,39 @@
         .btn:hover {
             background-color: #0056b3;
         }
+
+        /* Center content */
+        .center-content {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        /* Center table */
+        .center-table {
+            margin: 0 auto;
+        }
     </style>
 </head>
 <body>
-    <h1>Product List</h1>
-    <div>
-        @if (session()->has('success'))
-            <div>
-                {{ session('success') }}
-            </div>
-        @endif
-    </div>
-    <div>
+    <div class="center-content">
+        <h1><center>Product List</center></h1>
+
         <div>
+            @if (session()->has('success'))
+                <div>
+                    {{ session('success') }}
+                </div>
+            @endif
+        </div>
+
+        <div class="flex space-x-4 my-4">
             <a href="{{ route('product.create') }}" class="btn">Create a Product</a>
             <a href="{{ url('/dashboard') }}" class="btn">Go to Dashboard</a> <!-- Dashboard button -->
         </div>
-        <table border="1">
+
+        <table border="1" class="center-table">
             <tr>
                 <th>ID</th>
                 <th>Name</th>
